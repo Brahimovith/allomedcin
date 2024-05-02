@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Nouveaux docteurs en attente</h1>
+    <ul>
+        {% for docteur in docteurs %}
+            <li>{{ docteur.nom }}, {{ docteur.prenom }} - {{ docteur.specialite }}
+                <form action="{{ url_for('ajouter_docteur', docteur_id=docteur.id) }}" method="post">
+                    <button type="submit">Ajouter</button>
+                </form>
+                <form action="{{ url_for('supprimer_docteur', docteur_id=docteur.id) }}" method="post">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

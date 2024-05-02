@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="milieu" role="">
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('doctor')}}"><button class="header-button">Vous etes Docteur?</button></a>
+        <p>Prenez rendez-vous pour une consultation vidéo !</p>
+        <a href="{{ url_for('register') }}"><button class="inscription">Créer un compte</button></a>
+        <a href="{{ url_for('connexion')}}"><button class="inscription">Se connecter</button></a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Déconnexion</a>
+        <p>bonjour {{ current_user.username}}</p>
+        
+
+
+        {% endif %}
+    </div>
+   
+    <div class="comment" role="">
+        <p>Comment ça fonctionne ? </p>
+        <div class="grille">
+            <p>Je créé un compte-></p>
+            <p>Je recherche une spécialité-></p>
+            <p>Je choisis mon praticien </p>
+        </div>
+    </div>
+{% endblock %}

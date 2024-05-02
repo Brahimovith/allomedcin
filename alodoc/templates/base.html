@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{ title }} - Allo Medcin</title>
+    {% else %}
+    <title>Allo Medcin</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="../static/styles/common.css" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/header.css" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/milieu.css" />
+    <link rel='shortcut icon' href="../static/images/images.png" />
+</head>
+
+<body>
+    <header title="Logo">
+        <img src="../static/images/images.png" alt="Logo" class="header-logo">
+        <nav>
+            <ul>
+                <li><a href="#">Qui sommes nous</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+    
+    <footer>
+        <p>© 2024 Allomedcin - Tous droits réservés</p>
+    </footer>
+</body>
+
+</html>

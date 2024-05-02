@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    
+    <form method="POST">
+        <h1>Formulaire Docteur</h1>
+        {{ form.hidden_tag() }}
+        <div class="form-group">{{ form.nom.label(class="lbl") }}
+        {{ form.nom(class="msg") }}
+        {% for error in form.nom.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        </div>
+
+        <div class="form-group">{{ form.prenom.label(class="lbl") }}
+            {{ form.prenom(class="msg") }}
+            {% for error in form.prenom.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            </div>
+        <div class="form-group">
+            {{ form.age.label(class="lbl") }} {{ form.age(class="msg") }}
+            {% for erreur in form.age.errors %}
+                <span style="color: red;">{{ erreur }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.genre.label(class="lbl") }} {{ form.genre(class="msg") }}
+             {% for erreur in form.genre.errors %}
+            <span style="color: red;">{{ erreur }}</span>
+             {% endfor %}
+        </div>
+        <div class="form-group">{{ form.email.label(class="lbl") }}
+        {{ form.email(class="msg") }}
+        {% for error in form.email.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        </div>
+
+        <div class="form-group">{{ form.adresse.label(class="lbl") }}
+            {{ form.adresse(class="msg") }}
+            {% for error in form.adresse.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            </div>
+        <div class="form-group">{{ form.ville.label(class="lbl") }}
+                {{ form.ville(class="msg") }}
+                {% for error in form.ville.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                </div>
+        
+        <div class="form-group">{{ form.pays.label(class="lbl") }}
+                    {{ form.pays(class="msg") }}
+                    {% for error in form.pays.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </div>
+        
+        <div class="form-group">{{ form.spe.label(class="lbl") }}
+               {{ form.spe(class="msg") }}
+                 {% for error in form.spe.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                 {% endfor %}
+         </div>
+
+        <div class="form-group">{{ form.submit(class="btn") }}</div>
+    </form>
+{% endblock %}
