@@ -16,14 +16,14 @@ class client(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
-   # first_name = db.Column(db.String(100), nullable=False)
-    #last_name = db.Column(db.String(100), nullable=False)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    #gender = db.Column(db.Enum(Gender), nullable=False)  # Peut être 'Male', 'Female', 'Other'
-    #age = db.Column(db.Integer, nullable=False)
-    #address = db.Column(db.String(255), nullable=False)
-    #city = db.Column(db.String(100), nullable=False)
-    #country = db.Column(db.String(100), nullable=False)
+    gender = db.Column(db.Enum(Gender), nullable=False)  # Peut être 'Male', 'Female', 'Other'
+    age = db.Column(db.Integer, nullable=False)
+    address = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(100), nullable=False)
+    country = db.Column(db.String(100), nullable=False)
 
     def check_password(self,mdp):
         if (self.password == mdp):

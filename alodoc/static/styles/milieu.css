@@ -1,23 +1,12 @@
-.milieu {
-    background-image: url('../images/bg.jpg');
-    background-size: cover; /* Ajuster la taille de l'image pour couvrir toute la division */
-    background-position: center; /* Centrer l'image */
-    padding: 20px; /* Ajouter de l'espace à l'intérieur de la division */
-    text-align: center; /* Centrer le contenu */
-    color: rgb(14, 4, 4); /* Couleur du texte */
-  }
-  
-  .milieu p {
-    font-size: 18px; /* Taille de la police */
-  }
-  
-  .inscription {
-    background-color: #007bff; /* Couleur de fond du bouton */
+    .inscription {
+    background-color: #ff4800; /* Couleur de fond du bouton */
     color: white; /* Couleur du texte du bouton */
     padding: 10px 20px; /* Ajouter de l'espace à l'intérieur du bouton */
     border: none; /* Supprimer la bordure */
     border-radius: 5px; /* Ajouter des coins arrondis */
     cursor: pointer; /* Changer le curseur au survol */
+    font-weight: bold;
+    transition: background-color 0.3s;
   }
 
   .comment .grille {
@@ -25,4 +14,63 @@
     justify-content: center; /* Centrer les éléments horizontalement */
     align-items: center; /* Centrer les éléments verticalement */
   }
+
+  #hero {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
   
+
+#how-it-works {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+  text-align: center;
+}
+
+#how-it-works h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex-basis: calc(33.3333% - 40px);
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 16px;
+  color: #666;
+}

@@ -18,18 +18,40 @@ login_manager.init_app(app)
 def index():
     return render_template('index.html')
 
+
+@app.route('/rendezvous')
+def rdv():
+    from .models import doctorvalide
+    from .rdv import Rendezvous
+    form = Rendezvous()
+    doc = doctorvalide.query.all()
+    form.i.choices=[(a.id, a.id) for a in doctorvalide.query.all()]
+    if form.validate_on_submit():
+        select=form.i.data
+        date =form.date.data
+
+    return render_template('rdv.html', form= form,doc=doc)
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         # Traitez les données
+        print("hhh")
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        save_new_client_en_db(username,email,password)
+        nom = form.nom.data
+        prenom = form.prenom.data
+        sexe = form.genre.data
+        adresse= form.adresse.data
+        ville= form.ville.data
+        pays= form.pays.data
+        age = form.age.data
+        save_new_client_en_db(username,email,password,nom,prenom,sexe,adresse,ville,pays,age)
         return redirect('/')
 
-    return render_template('inscription.html', form=form)
+    return render_template('inscription.html', form=form,title="Registration Form" )
 
 
 @app.route('/connexion', methods=['GET', 'POST'])
@@ -92,11 +114,14 @@ def doctor():
 
 
 @app.route('/admin/', methods=['GET', 'POST'])
+@app.route('/admin', methods=['GET', 'POST'])
 def page_adm_doc():
     from .models import doctor 
     from .models import db  
+    from .models import doctorvalide
     docteurs = doctor.query.all()
-    return render_template('page_adm_doc.html', docteurs=docteurs,title= 'Admin')
+    doc = doctorvalide.query.all()
+    return render_template('page_adm_doc.html',doc=doc, docteurs=docteurs,title= 'Admin')
 
 @app.route('/admin/ajouter_docteur/<int:docteur_id>', methods=['POST'])
 def ajouter_docteur(docteur_id):

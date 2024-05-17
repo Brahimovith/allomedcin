@@ -1,17 +1,75 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Nouveaux docteurs en attente</h1>
-    <ul>
-        {% for docteur in docteurs %}
-            <li>{{ docteur.nom }}, {{ docteur.prenom }} - {{ docteur.specialite }}
-                <form action="{{ url_for('ajouter_docteur', docteur_id=docteur.id) }}" method="post">
-                    <button type="submit">Ajouter</button>
+    <h1>New doctor</h1>
+    
+        {% for i in docteurs %}
+        <table border="2">
+            <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>age</th>
+            <th>email</th>
+            <th>gender</th>
+            <th>address</th>
+            <th>city</th>
+            <th>country</th>
+            <th>speciality</th>
+            </tr>
+            <tr>
+            <th>{{i.id}}</th>
+            <th>{{i.first_name}}</th>
+            <th>{{i.last_name}}</th>
+            <th>{{i.age}}</th>
+            <th>{{i.email}}</th>
+            <th>{{i.gender}}</th>
+            <th>{{i.address}}</th>
+            <th>{{i.city}}</th>
+            <th>{{i.country}}</th>
+            <th>{{i.specialite}}</th>
+            </tr>
+        </table>
+                <form action="{{ url_for('ajouter_docteur', docteur_id=i.id) }}" method="post">
+                    <button type="submit">Add</button>
                 </form>
-                <form action="{{ url_for('supprimer_docteur', docteur_id=docteur.id) }}" method="post">
-                    <button type="submit">Supprimer</button>
+                <form action="{{ url_for('supprimer_docteur', docteur_id=i.id) }}" method="post">
+                    <button type="submit">Delete</button>
                 </form>
             </li>
         {% endfor %}
-    </ul>
+
+    <h1>validate doctor</h1>
+    <table border="2">
+        <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>age</th>
+        <th>email</th>
+        <th>gender</th>
+        <th>address</th>
+        <th>city</th>
+        <th>country</th>
+        <th>speciality</th>
+        </tr>
+        {% for i in doc%}
+        <tr>
+        <th>{{i.id}}</th>
+        <th>{{i.first_name}}</th>
+        <th>{{i.last_name}}</th>
+        <th>{{i.age}}</th>
+        <th>{{i.email}}</th>
+        <th>{{i.gender}}</th>
+        <th>{{i.address}}</th>
+        <th>{{i.city}}</th>
+        <th>{{i.country}}</th>
+        <th>{{i.specialite}}</th>
+        </tr>
+        {% endfor %}
+          
+    </table>
+
+
+
 {% endblock %}

@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    font-family: Arial, sans-serif;
 }
 
 form {
@@ -35,3 +36,13 @@ form {
     border-radius: 5px;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

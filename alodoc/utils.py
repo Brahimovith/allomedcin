@@ -1,10 +1,12 @@
 
-def save_new_client_en_db(username, email, password):
+def save_new_client_en_db(username,email,password,nom,prenom,sexe,adresse,ville,pays,age):
     from .models import client 
     from .models import db  
-    user = client(username=username, email=email, password=password)
+    print("je suis la")
+    user = client(username=username,email=email,password=password,first_name=nom,last_name=prenom,gender=sexe,address=adresse,city=ville,country=pays,age=age)
     db.session.add(user)
     db.session.commit()
+    print(user)
 
 def authenticate(username, password):
     from .models import client 
